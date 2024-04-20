@@ -37,14 +37,15 @@ export class HomeComponent  implements OnInit{
   }
 
   delete (reg : Registration ){
-    console.log ("student delete--", reg)
+    //console.log ("student delete--", reg)
     this.registratinService.delete(reg.stu_no!).subscribe((res)=>{
+      console.log("delete resposne--", res)
       this.ngOnInit();
     })
   }
 
   editStu (reg: Registration) {
-    console.log("Edit student--" , reg)
+   // console.log("Edit student--" , reg)
     // localStorage.removeItem('stuNo');  
     // // let proid = 0;
     // localStorage.setItem('stuNo', reg.stu_no!.toString());
@@ -56,6 +57,7 @@ export class HomeComponent  implements OnInit{
   submit(){
     console.log(this.form.value);
     this.registratinService.update(this.form.value).subscribe(data => {   
+      console.log("update res", data)
       this.ngOnInit(); 
     } )
   

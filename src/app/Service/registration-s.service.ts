@@ -23,7 +23,7 @@ export class RegistrationSService {
   } 
 
   create(post:Registration) :Observable<any> {
-    console.log(post.stu_name);
+     console.log(post.stu_name);
     return this.httpClient.post(this.apiURL + '/save', post, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
