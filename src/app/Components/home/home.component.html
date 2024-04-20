@@ -1,0 +1,89 @@
+
+    <br>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+     
+        <!-- <button class="btn btn-primary "  (click)="show()"><i class="fa-solid fa-user-plus "></i> Add</button> -->
+      </div>
+        <div class="col-md-12">  
+          <h3 style="text-align:center ;background-color:rgb(100, 160, 220); padding:2px;">Student List</h3><br> 
+
+          <div class="text-end">
+             <button   class="btn btn-primary"(click)="goReg()" ><i class="fa-solid fa-user-plus "  ></i> Add Student</button> 
+            </div>
+          <div class="table-responsive">  
+            <table class="table  table-sm">  
+              <thead>  
+                <tr>  
+                  <th>Id</th>  
+                  <th> Name</th>  
+                  <th>Phone</th>    
+                  <th>Address</th>
+  
+                  <th>Action</th>  
+                  <th>Action</th>  
+                </tr>  
+              </thead>  
+              <tbody> 
+                <tr *ngFor="let p of registrationList" >
+                <td>{{p.stu_id}}</td>
+                <td>{{p.stu_name}}</td>
+                <td>{{p.stu_phone}}</td>
+                <td>{{p.stu_address}}</td>
+            
+               
+                
+               <td> <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat"  (click)="editStu(p)">Edit</button></td> 
+                <td> <button class="btn btn-danger" (click)="delete(p)">Delete</button></td>  
+        
+               </tr>
+              </tbody>  
+            </table>  
+          </div>  
+        </div>  
+
+
+
+        <!-- modal start -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit Student</h5>
+                  <!-- <div class="text-center">
+                  <h5  style="text-align:center ;background-color:rgb(100, 160, 220); padding:2px;">Edit Student</h5>
+                </div> -->
+                  <br> 
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form  [formGroup]="form" (ngSubmit)="submit()">
+                    
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Student Id</label>
+                        <input formControlName="stu_id"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="Student Id">
+                      </div>
+                    
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Student Name</label>
+                        <input formControlName="stu_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Student Name">
+                      </div>
+                    
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Phone</label>
+                        <input formControlName="stu_phone" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Phone">
+                      </div>
+                    
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                        <textarea formControlName="stu_address" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                      </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" (click)="submit()"  data-bs-dismiss="modal">Update </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        

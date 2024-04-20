@@ -1,0 +1,31 @@
+<br>
+<div class="text-end">
+    <button   class="btn btn-primary"  routerLink="../home" ><i class="fa-solid fa-user-plus " ></i> Student List</button> 
+
+</div>
+<br>
+<h3 style="text-align:center ;background-color:rgb(100, 160, 220); padding:2px;">Registration</h3><br> 
+
+<form  [formGroup]="form" (ngSubmit)="submit()" >
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Student Id</label>
+    <input formControlName="stu_id"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="Student Id">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Student Name</label>
+    <input formControlName="stu_name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Student Name">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Phone</label>
+    <input formControlName="stu_phone" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Phone">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+    <textarea formControlName="stu_address" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button> 
+</form>
